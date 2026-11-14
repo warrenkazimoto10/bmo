@@ -166,15 +166,18 @@ export default function BmoLogin({ onLogin }) {
 
               <div className="bmo-field">
                 <label htmlFor="password" className="bmo-label">
-                  Mot de passe
+                  Code personnel
                 </label>
                 <div className="bmo-input-wrapper">
                   <input
                     id="password"
-                    type={showPassword ? 'text' : 'password'}
+                    type={showPassword ? 'tel' : 'password'}
+                    inputMode="numeric"
+                    pattern="[0-9]*"
+                    maxLength={6}
                     className="bmo-input bmo-input-password"
                     value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={(e) => setPassword(e.target.value.replace(/\D/g, ''))}
                     required
                   />
                   <button
