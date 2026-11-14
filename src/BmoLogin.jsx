@@ -1,8 +1,56 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './BmoLogin.css';
 import db from './data/db.json';
 
 const LOGO_URL = 'https://b-mosgrp-parts-vsr.vercel.app/img/bnp-alone.png';
+const COOKIE_KEY = 'bmo_cookies_accepted';
+
+function CookieModal({ onAccept, onDecline }) {
+  return (
+    <div className="cookie-overlay">
+      <div className="cookie-modal">
+        <div className="cookie-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#0075BE" strokeWidth="1.5">
+            <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/>
+            <circle cx="7.5" cy="11.5" r="1" fill="#0075BE"/>
+            <circle cx="11" cy="15" r="1" fill="#0075BE"/>
+            <circle cx="15.5" cy="12.5" r="1" fill="#0075BE"/>
+            <circle cx="10" cy="8" r="1" fill="#0075BE"/>
+          </svg>
+        </div>
+        <h3 className="cookie-title">Gestion des cookies</h3>
+        <p className="cookie-text">
+          Nous utilisons des cookies et des technologies similaires pour améliorer votre expérience,
+          personnaliser le contenu et analyser le trafic. En cliquant sur «&nbsp;Tout accepter&nbsp;»,
+          vous consentez à l'utilisation de tous les cookies.
+        </p>
+        <div className="cookie-details">
+          <div className="cookie-detail-row">
+            <span className="cookie-detail-label">Cookies essentiels</span>
+            <span className="cookie-badge cookie-badge-required">Requis</span>
+          </div>
+          <div className="cookie-detail-row">
+            <span className="cookie-detail-label">Cookies analytiques</span>
+            <span className="cookie-badge">Optionnel</span>
+          </div>
+          <div className="cookie-detail-row">
+            <span className="cookie-detail-label">Cookies de personnalisation</span>
+            <span className="cookie-badge">Optionnel</span>
+          </div>
+        </div>
+        <div className="cookie-actions">
+          <button className="cookie-btn cookie-btn-accept" onClick={onAccept}>
+            Tout accepter
+          </button>
+          <button className="cookie-btn cookie-btn-decline" onClick={onDecline}>
+            Essentiels uniquement
+          </button>
+        </div>
+        <a href="#privacy" className="cookie-link">En savoir plus sur notre politique de confidentialité</a>
+      </div>
+    </div>
+  );
+}
 
 export default function BmoLogin({ onLogin }) {
   const [cardNumber, setCardNumber] = useState('');
@@ -11,6 +59,15 @@ export default function BmoLogin({ onLogin }) {
   const [showPassword, setShowPassword] = useState(false);
   const [language, setLanguage] = useState('EN');
   const [error, setError] = useState('');
+  const [showCookies, setShowCookies] = useState(false);
+
+  useEffect(() => {
+    try {
+      if (!localStorage.getItem(COOKIE_KEY)) {
+        setShowCookies(true);
+      }
+    } catch { /* private browsing */ }
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -245,6 +302,19 @@ export default function BmoLogin({ onLogin }) {
           </div>
         </div>
       </footer>
+
+      {showCookies && (
+        <CookieModal
+          onAccept={() => {
+            try { localStorage.setItem(COOKIE_KEY, 'all'); } catch {}
+            setShowCookies(false);
+          }}
+          onDecline={() => {
+            try { localStorage.setItem(COOKIE_KEY, 'essential'); } catch {}
+            setShowCookies(false);
+          }}
+        />
+      )}
     </div>
   );
 }
