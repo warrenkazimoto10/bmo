@@ -221,11 +221,6 @@ function formatFullDate(dateStr, lang) {
   return `${d.getDate()} ${t.months[d.getMonth()]} ${d.getFullYear()}`;
 }
 
-function formatTime() {
-  const d = new Date();
-  return d.toLocaleTimeString('fr-CA', { hour: '2-digit', minute: '2-digit', hour12: false });
-}
-
 function getTransIcon(desc) {
   const d = desc.toLowerCase();
   if (d.includes('salaire') || d.includes('dépôt') || d.includes('virement entrant')) return { emoji: '💰', bg: '#e8f5e9' };
@@ -256,29 +251,6 @@ const RibIcons = {
   link: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0075be" strokeWidth="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>,
   mail: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0075be" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>,
 };
-
-// ── Fake Mobile Status Bar ──
-function StatusBar() {
-  const [time, setTime] = useState(formatTime());
-  useEffect(() => {
-    const t = setInterval(() => setTime(formatTime()), 30000);
-    return () => clearInterval(t);
-  }, []);
-  return (
-    <div className="status-bar">
-      <span className="status-time">{time}</span>
-      <div className="status-right">
-        <svg width="15" height="11" viewBox="0 0 15 11" fill="white"><rect x="0" y="7" width="2.5" height="4" rx=".5"/><rect x="3.5" y="5" width="2.5" height="6" rx=".5"/><rect x="7" y="3" width="2.5" height="8" rx=".5"/><rect x="10.5" y="0" width="2.5" height="11" rx=".5"/></svg>
-        <svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="white" strokeWidth="1.5"><path d="M1 4.5C3.8 1.5 7.5 0 8 0s4.2 1.5 7 4.5"/><path d="M3.5 7C5.3 5.2 7 4.3 8 4.3s2.7.9 4.5 2.7"/><circle cx="8" cy="10" r="1.2" fill="white" stroke="none"/></svg>
-        <div className="status-battery">
-          <div className="status-battery-body"><div className="status-battery-fill" /></div>
-          <div className="status-battery-tip" />
-        </div>
-        <span className="status-batt-pct">87%</span>
-      </div>
-    </div>
-  );
-}
 
 // ── Notification Center ──
 function NotificationCenter({ user, onClose, onShowBlock }) {
@@ -515,7 +487,6 @@ function LoadingScreen({ onDone }) {
   useEffect(() => { const tm = setTimeout(onDone, 1600); return () => clearTimeout(tm); }, [onDone]);
   return (
     <div className="db-loading">
-      <StatusBar />
       <div className="db-loading-inner">
         <img src={LOGO_URL} alt="BMO" className="db-loading-logo" />
         <div className="db-loading-spinner">
@@ -1284,7 +1255,6 @@ export default function Dashboard({ user: initialUser, onLogout }) {
   return (
     <LangContext.Provider value={lang}>
       <div className="db-container">
-        <StatusBar />
         <header className="db-header">
           <div className="db-header-bg">
             <div className="db-header-top">

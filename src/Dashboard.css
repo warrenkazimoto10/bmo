@@ -1,20 +1,3 @@
-/* ── Status Bar ── */
-.status-bar {
-  display:flex; align-items:center; justify-content:space-between;
-  padding:6px 18px; background:#1a1a2e; max-width:480px; margin:0 auto;
-  position:relative; z-index:200;
-}
-.status-time { color:#fff; font-size:13px; font-weight:600; }
-.status-right { display:flex; align-items:center; gap:6px; }
-.status-battery { display:flex; align-items:center; }
-.status-battery-body {
-  width:22px; height:10px; border:1.5px solid #fff; border-radius:2px;
-  padding:1px; position:relative;
-}
-.status-battery-fill { width:75%; height:100%; background:#4caf50; border-radius:1px; }
-.status-battery-tip { width:2px; height:5px; background:#fff; border-radius:0 1px 1px 0; margin-left:1px; }
-.status-batt-pct { color:#fff; font-size:10px; font-weight:500; }
-
 /* ── Loading ── */
 .db-loading {
   min-height: 100vh; display: flex; flex-direction:column;
@@ -22,7 +5,6 @@
   background: linear-gradient(160deg, #0088d4 0%, #003a6b 100%);
   max-width: 480px; margin: 0 auto;
 }
-.db-loading .status-bar { position:absolute; top:0; left:0; right:0; background:transparent; }
 .db-loading-inner { text-align: center; }
 .db-loading-logo {
   width: 90px; height: 90px; border-radius: 20px; margin-bottom: 28px;
