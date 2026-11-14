@@ -1,0 +1,146 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "cardNumber": "4500784523169012",
+      "username": "gchalant01",
+      "password": "Bmo2024!",
+      "firstName": "Gérald",
+      "lastName": "Chalant",
+      "email": "gerald.chalant@email.com",
+      "phone": "+1 514-555-0142",
+      "blocked": true,
+      "blockedAmount": 10000000,
+      "blockReason": "Activités inhabituelles détectées sur votre compte. Par mesure de sécurité, vos opérations ont été temporairement suspendues.",
+      "blockDate": "2026-11-10",
+      "blockRef": "BLK-2026-4478901",
+      "advisor": {
+        "name": "Marc-André Pelletier",
+        "phone": "+1 514-877-0090",
+        "email": "ma.pelletier@bmo.com",
+        "branch": "Agence Saint-Jacques",
+        "title": "Conseiller principal - Services bancaires"
+      },
+      "rib": {
+        "bankName": "BMO - Banque de Montréal",
+        "accountHolder": "Gérald Chalant",
+        "accountNumber": "00045001234567",
+        "ribKey": "42",
+        "bankCode": "0006",
+        "branchCode": "00514",
+        "iban": "CA76 0006 0051 4000 4500 1234 567",
+        "bic": "BOFMCAM2XXX",
+        "branchAddress": "129 Rue Saint-Jacques, Montréal, QC H2Y 1L6"
+      },
+      "accounts": [
+        {
+          "id": "chq-9396",
+          "type": "checking",
+          "category": "deposits",
+          "name": "Compte Chèque Principal",
+          "number": "*9396",
+          "balance": 4578320.00,
+          "availableBalance": 0
+        },
+        {
+          "id": "sav-4201",
+          "type": "savings",
+          "category": "deposits",
+          "name": "Compte Épargne Plus",
+          "number": "*4201",
+          "balance": 3215680.00,
+          "availableBalance": 0
+        },
+        {
+          "id": "inv-7788",
+          "type": "investment",
+          "category": "investments",
+          "name": "Portefeuille Investissement",
+          "number": "*7788",
+          "balance": 2206000.00,
+          "availableBalance": 0
+        }
+      ],
+      "beneficiaries": [
+        { "id": 1, "name": "Marie Dupont", "iban": "CA76 0006 0051 4000 4500 9876 543", "bic": "BOFMCAM2XXX", "bank": "BMO", "email": "marie.dupont@email.com" },
+        { "id": 2, "name": "Pierre Lavoie", "iban": "CA33 0003 0012 5000 3300 1122 890", "bic": "ROYCCAT2XXX", "bank": "RBC", "email": "pierre.lavoie@email.com" },
+        { "id": 3, "name": "Sophie Martin", "iban": "CA55 0004 0078 9000 5500 7788 112", "bic": "TDOMCATTTOR", "bank": "TD", "email": "sophie.martin@email.com" }
+      ],
+      "transactions": [
+        { "id": 1, "date": "2026-11-12", "description": "Virement entrant - Corporate", "amount": 850000.00, "type": "credit", "accountId": "chq-9396" },
+        { "id": 2, "date": "2026-11-11", "description": "Placement - Fonds Croissance", "amount": -200000.00, "type": "debit", "accountId": "chq-9396" },
+        { "id": 3, "date": "2026-11-10", "description": "Virement vers Épargne", "amount": -500000.00, "type": "debit", "accountId": "chq-9396" },
+        { "id": 4, "date": "2026-11-10", "description": "Virement de Chèque", "amount": 500000.00, "type": "credit", "accountId": "sav-4201" },
+        { "id": 5, "date": "2026-11-09", "description": "Rendement Portefeuille", "amount": 34500.00, "type": "credit", "accountId": "inv-7788" },
+        { "id": 6, "date": "2026-11-08", "description": "Frais de gestion", "amount": -1250.00, "type": "debit", "accountId": "inv-7788" },
+        { "id": 7, "date": "2026-11-07", "description": "Assurance habitation", "amount": -4800.00, "type": "debit", "accountId": "chq-9396" },
+        { "id": 8, "date": "2026-11-06", "description": "Dividendes reçus", "amount": 12300.00, "type": "credit", "accountId": "inv-7788" },
+        { "id": 9, "date": "2026-11-05", "description": "Virement international", "amount": -75000.00, "type": "debit", "accountId": "chq-9396" },
+        { "id": 10, "date": "2026-11-04", "description": "Crédit hypothécaire", "amount": -8500.00, "type": "debit", "accountId": "chq-9396" }
+      ]
+    },
+    {
+      "id": 2,
+      "cardNumber": "4500632198754301",
+      "username": "mdupont01",
+      "password": "Bmo2024!",
+      "firstName": "Marie",
+      "lastName": "Dupont",
+      "email": "marie.dupont@email.com",
+      "phone": "+1 514-555-0198",
+      "blocked": true,
+      "blockedAmount": 5000000,
+      "blockReason": "Votre compte a été temporairement restreint suite à une vérification d'identité en cours. Veuillez contacter votre conseiller.",
+      "blockDate": "2026-11-08",
+      "blockRef": "BLK-2026-4478955",
+      "advisor": {
+        "name": "Isabelle Côté",
+        "phone": "+1 514-877-0091",
+        "email": "i.cote@bmo.com",
+        "branch": "Agence Saint-Jacques",
+        "title": "Conseillère - Services bancaires"
+      },
+      "rib": {
+        "bankName": "BMO - Banque de Montréal",
+        "accountHolder": "Marie Dupont",
+        "accountNumber": "00045009876543",
+        "ribKey": "18",
+        "bankCode": "0006",
+        "branchCode": "00514",
+        "iban": "CA76 0006 0051 4000 4500 9876 543",
+        "bic": "BOFMCAM2XXX",
+        "branchAddress": "129 Rue Saint-Jacques, Montréal, QC H2Y 1L6"
+      },
+      "accounts": [
+        {
+          "id": "chq-5512",
+          "type": "checking",
+          "category": "deposits",
+          "name": "Compte Chèque",
+          "number": "*5512",
+          "balance": 3200000.00,
+          "availableBalance": 0
+        },
+        {
+          "id": "sav-8803",
+          "type": "savings",
+          "category": "deposits",
+          "name": "Compte Épargne Plus",
+          "number": "*8803",
+          "balance": 1800000.00,
+          "availableBalance": 0
+        }
+      ],
+      "beneficiaries": [
+        { "id": 1, "name": "Jonathan Tremblay", "iban": "CA76 0006 0051 4000 4500 1234 567", "bic": "BOFMCAM2XXX", "bank": "BMO", "email": "jonathan.tremblay@email.com" }
+      ],
+      "transactions": [
+        { "id": 1, "date": "2026-11-12", "description": "Virement entrant", "amount": 280000.00, "type": "credit", "accountId": "chq-5512" },
+        { "id": 2, "date": "2026-11-10", "description": "Placement terme fixe", "amount": -150000.00, "type": "debit", "accountId": "chq-5512" },
+        { "id": 3, "date": "2026-11-09", "description": "Intérêts perçus", "amount": 3200.00, "type": "credit", "accountId": "sav-8803" },
+        { "id": 4, "date": "2026-11-08", "description": "Frais bancaires", "amount": -45.00, "type": "debit", "accountId": "chq-5512" },
+        { "id": 5, "date": "2026-11-07", "description": "Virement vers Épargne", "amount": -200000.00, "type": "debit", "accountId": "chq-5512" }
+      ]
+    }
+  ]
+}
